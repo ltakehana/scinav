@@ -5,6 +5,7 @@ alembic
 psycopg2-binary
 python-dotenv
 jose
+python-jose
 passlib[bcrypt]
 flake8
 pytest
