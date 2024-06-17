@@ -1,0 +1,7 @@
+.Input{
+    padding: 2em;
+    border-radius: 20px;
+    height: 9px;
+    border: none;
+    box-shadow: inset -2px -4px 4px 0px rgba(0, 0, 0, 0.5);
+}

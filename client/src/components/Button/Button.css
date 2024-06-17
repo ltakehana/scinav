@@ -1,0 +1,13 @@
+.Button{
+    display: flex;
+    padding: 20px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: inset -2px -4px 4px 0px rgba(0, 0, 0, 0.5);
+    color:#5270D9;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 30pt;
+    cursor: pointer;
+}

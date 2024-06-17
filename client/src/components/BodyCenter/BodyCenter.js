@@ -1,10 +1,10 @@
 import React from 'react';
 import './BodyCenter.css'
 
-const BodyCenter= ({child}) => {
+const BodyCenter= ({children}) => {
   return (
     <flex className='BodyCenter'>
-      {child}
+      {children}
     </flex>
   );
 };

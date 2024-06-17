@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 import './Login.css'
 import BodyCenter from '../../components/BodyCenter/BodyCenter';
+import VerticalLogo from '../../components/VerticalLogo/VerticalLogo';
+import Input from '../../components/Input/Input';
+import VerticalBox from '../../components/VerticalBox/VerticalBox';
+import Label from '../../components/Label/Label';
+import Button from '../../components/Button/Button';
 
 const Login = () => {
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
       await login(username, password);
     } catch (error) {
@@ -17,28 +23,22 @@ const Login = () => {
     }
   };
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/'); 
+    }
+  }, [isAuthenticated, navigate]);
+
   return (
     <BodyCenter>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <VerticalLogo></VerticalLogo>
+      <VerticalBox onSubmit={handleSubmit}>
+        <Label>Username:</Label>
+        <Input name={"username"} onChange={(e) => setUsername(e.target.value)} style={{width:"20vw"}}/>
+        <Label>Password:</Label>
+        <Input type="password" name={"password"} onChange={(e) => setPassword(e.target.value)} style={{width:"20vw"}}/>
+        <Button type="submit" style={{width:"18vw"}} onClick={()=>{handleSubmit()}}>Entrar</Button>
+      </VerticalBox>
     </BodyCenter>
   );
 };
