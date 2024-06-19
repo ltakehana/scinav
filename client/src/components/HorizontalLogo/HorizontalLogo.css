@@ -1,0 +1,9 @@
+.HorizontalLogo{
+    height: 100%;
+    display: inline-block;
+}
+
+.LogoHorizontalTitle{
+    font-size: 30pt;
+    display: inline-block;
+}

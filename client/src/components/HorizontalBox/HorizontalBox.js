@@ -1,9 +1,9 @@
 import React from 'react';
 import './HorizontalBox.css'
 
-const HorizontalBox= ({children}) => {
+const HorizontalBox= ({props,children}) => {
   return (
-    <flex className='HorizontalBox'>
+    <flex {...props} className='HorizontalBox'>
       {children}
     </flex>
   );

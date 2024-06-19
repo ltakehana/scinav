@@ -1,9 +1,9 @@
 import React from 'react';
 import './VerticalBox.css'
 
-const VerticalBox= ({children}) => {
+const VerticalBox= ({props,children}) => {
   return (
-    <flex className='VerticalBox'>
+    <flex {...props} className='VerticalBox'>
       {children}
     </flex>
   );
