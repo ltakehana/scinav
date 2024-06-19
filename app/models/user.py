@@ -11,3 +11,6 @@ class User(Base):
     password_hash = Column(String, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+
+    projects = relationship("Project", back_populates="owner")
+    reviews = relationship("Review", back_populates="reviewer")
